@@ -1,0 +1,13 @@
+:root {
+    --dark: #94618e;
+    --secondary: #49274e;
+    --light: #f4decb;
+    --primary: #f8eee7;
+}
+
+.nav-icons {
+    color: var(--dark)
+}
+.nav-icons:hover {
+    color: var(--light)
+}

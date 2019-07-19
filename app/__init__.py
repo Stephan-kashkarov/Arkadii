@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from config import configure_app
 
 app = Flask(__name__)
-configure_app(app, config)
+configure_app(app, 'dev')
 db = SQLAlchemy()
 migrate = Migrate(db)
 cors = CORS(app, resources={
@@ -14,3 +14,5 @@ cors = CORS(app, resources={
         'origins': app.config['ORIGINS']
     }
 })
+
+from app import routes

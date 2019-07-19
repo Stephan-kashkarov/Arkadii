@@ -3,7 +3,10 @@ from app import app
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    info = {
+        'categories': ["A", "B", "C"]
+    }
+    return render_template('index.html', info=info)
 
 @app.route('/browse')
 def browse():

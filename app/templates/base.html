@@ -13,8 +13,10 @@
     >
     <link
         rel="stylesheet"
-        href="{{url_for('.static', filename='css/nav.css')}}"
+        href="{{url_for('.static', filename='css/base.css')}}"
     >
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     {% block styles %}
     {% endblock %}
     <!-- Scripts -->
@@ -29,19 +31,63 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"
     ></script>
-    <script src="{{url_for('.static', filename='js/nav.js')}}"></script>
+    <script src="{{url_for('.static', filename='js/base.js')}}"></script>
     {% block scripts %}
     {% endblock %}
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a href="" class='bg-dark navbar-brand'>Arkadii</a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar items -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Items
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {% for item in info['categories'] %}
+                            <a class="dropdown-item" href="#">{{item}}</a>
+                        {% endfor %}
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Collections
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {% for collection in info['categories'] %}
+                            <a class="dropdown-item" href="#">{{collection}}</a>
+                        {% endfor %}
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link about">
+                        About
+                    </a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-1 hidden" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn" type="submit">
+                    <i class="material-icons nav-icons">search</i>
+                </button>
+            </form>
+            <button class="btn" type="submit">
+                <i class="material-icons nav-icons">shopping_cart</i>
+            </button>
+        </div>
     </nav>
+    
 
     {% block content %}
     {% endblock %}
 
-    {% block footer %}
-    {% endblock %}
+    <hr>
+    <p class="text-center"><small>&copy; - Stephan Kashkarov - 2019</small></p>
 </body>
 </html>
